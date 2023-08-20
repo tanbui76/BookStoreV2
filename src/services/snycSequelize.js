@@ -10,9 +10,9 @@ const { default: sequelize } = require("../config/database");
 import setUpRelationships from "../models/relationships";
 
 function syncSequelize() {
+    setUpRelationships();
     sequelize.sync({ force: true }).then(() => {
         console.log("Drop and re-sync db.");
-        setUpRelationships();
     });
 }
 
