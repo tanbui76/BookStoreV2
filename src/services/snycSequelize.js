@@ -11,8 +11,8 @@ import setUpRelationships from "../models/relationships";
 
 function syncSequelize() {
     setUpRelationships();
-    sequelize.sync({ force: true }).then(() => {
-        console.log("Drop and re-sync db.");
+    sequelize.sync({ alter: true, logging: false }).then(() => {
+        console.log('Synced Sequelize!');
     });
 }
 
