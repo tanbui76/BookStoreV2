@@ -6,7 +6,7 @@ import tokenMiddleware from '../middlewares/tokenMiddleware';
 let router = express.Router();
 
 const initAPIRoutes = (app) => {
-    router.get('/register', authController.register);
+    router.post('/register', authController.register);
     router.post('/login', authController.login);
     router.get('/getbooks', tokenMiddleware, bookController.getAllBooks);
     router.get('/searchbooks', bookController.searchBook);
