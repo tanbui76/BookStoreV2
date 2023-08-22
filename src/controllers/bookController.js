@@ -1,6 +1,8 @@
 import { Op } from "sequelize";
 import Books from "../models/books";
 import Categorys from "../models/categorys";
+import Rates from "../models/rates";
+import Images from "../models/images"
 
 let getAllBooks = async (req, res) => {
     try {
@@ -82,13 +84,34 @@ let searchBook = async (req, res) => {
             message: 'Error from Backend.Send error or report to Developer!',
             caution: 'Please be sure that you have already run "npm run seed","npm start","send all parameter"!',
             error: err.message
-        })
+        });
     }
 
+}
+
+let getDetailBook = async (req, res) => {
+    try {
+        let id = req.query.id;
+        const detailbook = Books.findOne({
+            include: [
+                Categorys, Rates, Images
+            ],
+            where: {
+                book_id: id
+            }
+        });
+    } catch (err) {
+        return res.status(500).json({
+            message: 'Error from Backend.Send error or report to Developer!',
+            caution: 'Please be sure that you have already run "npm run seed","npm start","send all parameter"!',
+            error: err.message
+        });
+    }
 }
 
 module.exports = {
     getAllBooks: getAllBooks,
     getBookByCategory: getBookByCategory,
-    searchBook: searchBook
+    searchBook: searchBook,
+    getDetailBook: getDetailBook
 }
