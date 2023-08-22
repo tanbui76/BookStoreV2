@@ -14,10 +14,16 @@ module.exports = {
     */
     await queryInterface.bulkInsert('roles', [{
       role_type: 'admin',
+      createdAt: '2022-12-12',
+      updatedAt: '2022-12-12'
     }, {
       role_type: 'user',
+      createdAt: '2022-12-12',
+      updatedAt: '2022-12-12'
     }, {
       role_type: 'guest',
+      createdAt: '2022-12-12',
+      updatedAt: '2022-12-12'
     }], {});
   },
 
