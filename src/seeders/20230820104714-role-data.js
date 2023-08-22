@@ -13,11 +13,11 @@ module.exports = {
      * }], {});
     */
     await queryInterface.bulkInsert('roles', [{
-      role_name: 'admin',
+      role_type: 'admin',
     }, {
-      role_name: 'user',
+      role_type: 'user',
     }, {
-      role_name: 'guest',
+      role_type: 'guest',
     }], {});
   },
 

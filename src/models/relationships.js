@@ -8,30 +8,69 @@ const Images = require("../models/images");
 const Rates = require("../models/rates");
 
 function setUpRelationships() {
-    Roles.hasMany(Users);
-    Users.belongsTo(Roles);
+    // Roles.hasMany(Users);
+    Users.belongsTo(Roles, {
+        foreignKey: {
+            name: 'role_id',
+            allowNull: false
+        }
+    });
 
-    Categorys.hasMany(Books);
-    Books.belongsTo(Categorys);
+    // Categorys.hasMany(Books);
+    Books.belongsTo(Categorys, {
+        foreignKey: {
+            name: 'category_id',
+            allowNull: false
+        }
+    });
 
-    Books.hasMany(Images);
-    Images.belongsTo(Books);
+    // Books.hasMany(Images);
+    Images.belongsTo(Books, {
+        foreignKey: {
+            name: 'book_id',
+            allowNull: false
+        }
+    });
 
-    Users.hasMany(Carts);
-    Carts.belongsTo(Users);
+    // Users.hasMany(Carts);
+    Carts.belongsTo(Users, {
+        foreignKey: {
+            name: 'user_id',
+            allowNull: false
+        }
+    });
 
-    Books.hasMany(Cart_items);
-    Cart_items.belongsTo(Books);
+    // Books.hasMany(Cart_items);
+    Cart_items.belongsTo(Books, {
+        foreignKey: {
+            name: 'book_id',
+            allowNull: false
+        }
+    });
 
-    Carts.hasMany(Cart_items);
-    Cart_items.belongsTo(Carts);
+    // Carts.hasMany(Cart_items);
+    Cart_items.belongsTo(Carts, {
+        foreignKey: {
+            name: 'cart_id',
+            allowNull: false
+        }
+    });
 
-    Users.hasMany(Rates);
-    Rates.belongsTo(Users);
+    // Users.hasMany(Rates);
+    Rates.belongsTo(Users, {
+        foreignKey: {
+            name: 'user_id',
+            allowNull: false
+        }
+    });
 
     Books.hasMany(Rates);
-    Rates.belongsTo(Books);
-
+    Rates.belongsTo(Books, {
+        foreignKey: {
+            name: 'book_id',
+            allowNull: false
+        }
+    });
 }
 
 module.exports = setUpRelationships;

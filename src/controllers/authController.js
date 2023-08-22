@@ -1,4 +1,3 @@
-import sequelize from '../config/database'
 import User from '../models/users'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -7,12 +6,11 @@ let login = async (req, res) => {
     try {
         let { username, password } = req.query;
         var user = await User.findOne({ where: { user_username: username } });
-        console.log('user', user);
+
         if (!user) {
             return res.status(401).json({ message: 'Username or password incorrect' });
         } else {
-            console.log('user.password', user.user_password);
-            console.log('password', password);
+
             let isPasswordValid = await bcrypt.compare(password, user.user_password);
             if (!isPasswordValid) {
                 return res.status(401).json({ message: 'Username or password incorrect' });
