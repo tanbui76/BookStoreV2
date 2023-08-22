@@ -9,6 +9,8 @@ const initAPIRoutes = (app) => {
     router.get('/register', authController.register);
     router.post('/login', authController.login);
     router.get('/getbooks', tokenMiddleware, bookController.getAllBooks);
+    router.get('/searchbooks', bookController.searchBook);
+    router.get('/getbookbycategory', tokenMiddleware, bookController.getBookByCategory);
     app.use('/api', router);
 };
 

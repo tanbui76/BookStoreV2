@@ -22,7 +22,6 @@ function cacheMiddleware(req, res, next) {
                 redisClient.setex(cacheKey, 3600, JSON.stringify(data));
                 res.sendResponse(data);
             };
-
             next();
         }
     });
