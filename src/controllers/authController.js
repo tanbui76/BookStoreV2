@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 
 let login = async (req, res) => {
     try {
-        let { username, password } = req.query;
+        let { username, password } = req.body;
         var user = await User.findOne({ where: { user_username: username } });
 
         if (!user) {
@@ -43,7 +43,7 @@ let login = async (req, res) => {
 
 let register = async (req, res) => {
     try {
-        let { username, password, gender, fullname, email, phone, birthdate } = req.query;
+        let { username, password, gender, fullname, email, phone, birthdate } = req.body;
 
         let userExist = await User.findOne({ where: { user_username: username } });
         if (userExist) {

@@ -24,7 +24,7 @@ let getAllBooks = async (req, res) => {
 
 let getBookByCategory = async (req, res) => {
     try {
-        let { id } = req.query;
+        let { id } = req.body;
         const BooksList = await Books.findAll({
             include: Categorys,
             where: {
@@ -47,7 +47,7 @@ let getBookByCategory = async (req, res) => {
 let searchBook = async (req, res) => {
     try {
 
-        let keyword = req.query.keyword;
+        let keyword = req.body.keyword;
         const result = await Books.findAll({
             include: Categorys,
             where: {
@@ -91,7 +91,7 @@ let searchBook = async (req, res) => {
 
 let getDetailBook = async (req, res) => {
     try {
-        let id = req.query.id;
+        let id = req.body.id;
         const detailbook = Books.findOne({
             include: [
                 Categorys, Rates, Images

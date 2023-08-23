@@ -70,6 +70,15 @@ module.exports = {
       category_id: '7',
       createdAt: '2022-12-12',
       updatedAt: '2022-12-12'
+    }, {
+      book_title: 'Chúa tể những chiếc nhẫn',
+      book_author: 'J.R.R. Tolklen',
+      book_description: 'Một tác phẩm nổi tiếng không thể bỏ qua!',
+      book_price: '312500',
+      book_quantity: '100',
+      category_id: '3',
+      createdAt: '2022-12-12',
+      updatedAt: '2022-12-12'
     }
     ])
   },
