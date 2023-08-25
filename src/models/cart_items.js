@@ -14,6 +14,10 @@ const Cart_items = sequelize.define("cart_items", {
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    item_quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
 });
 
 module.exports = Cart_items;

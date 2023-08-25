@@ -1,6 +1,7 @@
 import User from '../models/users'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import Carts from '../models/carts';
 
 let login = async (req, res) => {
     try {
@@ -53,7 +54,7 @@ let register = async (req, res) => {
         } else {
             const salt = await bcrypt.genSalt(10);
             let passwordHash = await bcrypt.hash(password, salt);
-            await User.create({
+            const newUser = await User.create({
                 user_username: username,
                 user_password: passwordHash,
                 user_gender: gender,
@@ -63,9 +64,14 @@ let register = async (req, res) => {
                 user_birthdate: birthdate,
                 role_id: 2
             });
+
+            await Carts.create({
+                user_id: newUser.user_id
+            });
             return res.status(200).json({
                 message: 'Register successfully!'
             });
+
         }
     } catch (err) {
         console.log(err);
