@@ -27,7 +27,8 @@ let login = async (req, res) => {
 
                 return res.json({
                     message: 'Loggin successfully!',
-                    token: token  // gửi token về client khi đăng nhập thành công 
+                    token: token,  // gửi token về client khi đăng nhập thành công 
+                    user: user
                 })
             }
         }

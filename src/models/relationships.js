@@ -48,13 +48,13 @@ function setUpRelationships() {
         }
     });
 
-    // Carts.hasMany(Cart_items);
-    Cart_items.belongsTo(Carts, {
+    Carts.hasMany(Cart_items, {
         foreignKey: {
             name: 'cart_id',
             allowNull: false
         }
     });
+    // Cart_items.belongsTo(Carts);
 
     // Users.hasMany(Rates);
     Rates.belongsTo(Users, {
@@ -64,7 +64,7 @@ function setUpRelationships() {
         }
     });
 
-    Books.hasMany(Rates);
+    // Books.hasMany(Rates);
     Rates.belongsTo(Books, {
         foreignKey: {
             name: 'book_id',

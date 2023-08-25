@@ -27,9 +27,12 @@ let addItems = async (req, res) => {
             });
         } else {
             await Cart_items.create({
-                user_id: userId,
+                cart_id: cartId,
                 book_id: bookId,
                 item_quantity: quantity
+            });
+            return res.status(200).json({
+                message: 'Modified cart_items!'
             });
         }
     } catch (err) {
