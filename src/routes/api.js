@@ -11,8 +11,8 @@ const initAPIRoutes = (app) => {
     router.post('/login', authController.login);
     router.get('/getbooks', tokenMiddleware, bookController.getAllBooks);
     router.get('/searchbooks', bookController.searchBook);
-    router.get('/getbookbycategory', tokenMiddleware, bookController.getBookByCategory);
-    router.get('/getdetailbook', tokenMiddleware, bookController.getDetailBook);
+    router.get('/getbookbycategory', bookController.getBookByCategory);
+    router.get('/getdetailbook', bookController.getDetailBook);
     router.get('/modifierUser', tokenMiddleware, userMiddleware.modifierUsers);
     app.use('/api', router);
 };
