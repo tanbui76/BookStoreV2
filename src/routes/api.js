@@ -18,6 +18,7 @@ const initAPIRoutes = (app) => {
     router.get('/getCart', tokenMiddleware, cartController.getCart);
     router.post('/addItems', tokenMiddleware, cartController.addItems);
     router.post('/removeItems', tokenMiddleware, cartController.removeItems);
+    router.get('/getUser', tokenMiddleware, userMiddleware.getUserInfo);
 
     app.use('/api', router);
 };
