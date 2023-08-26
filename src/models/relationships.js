@@ -24,13 +24,18 @@ function setUpRelationships() {
         }
     });
 
-    // Books.hasMany(Images);
-    Images.belongsTo(Books, {
+    Books.hasMany(Images, {
         foreignKey: {
             name: 'book_id',
             allowNull: false
         }
     });
+    // Images.belongsTo(Books, {
+    //     foreignKey: {
+    //         name: 'book_id',
+    //         allowNull: false
+    //     }
+    // });
 
     // Users.hasMany(Carts);
     Carts.belongsTo(Users, {
