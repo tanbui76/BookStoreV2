@@ -20,7 +20,7 @@ const initAPIRoutes = (app) => {
     router.post('/addItems', tokenMiddleware, cartController.addItems);
     router.post('/removeItems', tokenMiddleware, cartController.removeItems);
     router.get('/getUser', tokenMiddleware, userMiddleware.getUserInfo);
-    router.post('/uploadprofile', uploadMiddleware.profileUpload.single('image'), userMiddleware.ploadProfileImg);
+    // router.post('/uploadprofile', uploadMiddleware.profileUpload.single('image'), userMiddleware.ploadProfileImg);
 
     app.use('/api', router);
 };
