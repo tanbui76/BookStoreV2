@@ -1,5 +1,6 @@
 import Cart_items from "../models/cart_items";
 import Carts from "../models/carts";
+import Books from "../models/books";
 
 let addItems = async (req, res) => {
     try {
@@ -70,7 +71,11 @@ let getCart = async (req, res) => {
     try {
         let { user_id } = req.body;
         let Cart_items_list = await Carts.findAll({
-            include: Cart_items,
+            include: [{
+                model: Cart_items, include: {
+                    model: Books
+                }
+            }],
             where: {
                 user_id: user_id
             }
