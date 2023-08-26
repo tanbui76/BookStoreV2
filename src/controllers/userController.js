@@ -74,7 +74,16 @@ let getUserInfo = async (req, res) => {
     }
 }
 
+let uploadProfileImg = async (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: 'No file upload!' });
+    } else {
+        return res.status(200).json({ message: 'File uploaded successfully.' });
+    }
+};
+
 module.exports = {
     modifierUsers: modifierUsers,
-    getUserInfo: getUserInfo
+    getUserInfo: getUserInfo,
+    uploadProfileImg: uploadProfileImg
 }

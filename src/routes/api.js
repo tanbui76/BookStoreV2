@@ -4,6 +4,7 @@ import bookController from '../controllers/bookController';
 import tokenMiddleware from '../middlewares/tokenMiddleware';
 import userMiddleware from '../controllers/userController';
 import cartController from '../controllers/cartController';
+import uploadMiddleware from '../middlewares/uploadMiddleware';
 
 let router = express.Router();
 
@@ -19,6 +20,7 @@ const initAPIRoutes = (app) => {
     router.post('/addItems', tokenMiddleware, cartController.addItems);
     router.post('/removeItems', tokenMiddleware, cartController.removeItems);
     router.get('/getUser', tokenMiddleware, userMiddleware.getUserInfo);
+    router.post('/uploadprofile', uploadMiddleware.profileUpload.single('image'), userMiddleware.ploadProfileImg);
 
     app.use('/api', router);
 };

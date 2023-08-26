@@ -64,13 +64,18 @@ function setUpRelationships() {
         }
     });
 
-    // Books.hasMany(Rates);
-    Rates.belongsTo(Books, {
+    Books.hasMany(Rates, {
         foreignKey: {
             name: 'book_id',
             allowNull: false
         }
     });
+    // Rates.belongsTo(Books, {
+    //     foreignKey: {
+    //         name: 'book_id',
+    //         allowNull: false
+    //     }
+    // });
 }
 
 module.exports = setUpRelationships;
