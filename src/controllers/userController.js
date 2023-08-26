@@ -75,9 +75,13 @@ let getUserInfo = async (req, res) => {
 }
 
 let uploadProfileImg = async (req, res) => {
+    let user_id = req.body.user_id;
+
     if (!req.file) {
         return res.status(400).json({ message: 'No file upload!' });
     } else {
+        await Users.update({ user_profile: req.file.path }, { where: { user_id: user_id } });
+
         return res.status(200).json({ message: 'File uploaded successfully.' });
     }
 };

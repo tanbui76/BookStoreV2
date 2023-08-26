@@ -32,6 +32,10 @@ const Users = sequelize.define('users', {
     user_birthdate: {
         type: DataTypes.DATE,
     },
+    user_profile: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
     role_id: {
         type: DataTypes.INTEGER,
         allowNull: false

@@ -12,7 +12,7 @@ function authMiddleware(req, res, next) {
                 if (err) {
                     return res.json({ error: 'Error token!' });
                 } else {
-                    req.decoded = decoded; // lưu request để sử dụng cho route khác
+                    req.decoded = decoded;
                     next();
                 }
             });
