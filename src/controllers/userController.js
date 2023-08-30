@@ -54,7 +54,7 @@ let modifierUsers = async (req, res) => {
 let getUserInfo = async (req, res) => {
     try {
 
-        let { user_id } = req.body;
+        let { user_id } = req.query;
         const user = await Users.findOne({
             where: {
                 user_id: user_id
