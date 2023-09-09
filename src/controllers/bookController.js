@@ -44,6 +44,8 @@ let getBookByCategory = async (req, res) => {
     }
 }
 
+
+
 let searchBook = async (req, res) => {
     try {
 
@@ -108,6 +110,8 @@ let getDetailBook = async (req, res) => {
         });
     }
 }
+
+
 
 module.exports = {
     getAllBooks: getAllBooks,
